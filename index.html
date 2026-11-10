@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xiaojun Yang — Sensor & Instrument Engineering</title>
+<meta name="description" content="Freelance engineer: I build working sensor and instrument prototypes — electronics, firmware, software and the science behind them. Electrochemical & biosensor instruments, embedded/edge-AI hardware, lab software, AI for engineering teams.">
+<meta property="og:title" content="Xiaojun Yang — Sensor & Instrument Engineering">
+<meta property="og:description" content="Working sensor and instrument prototypes: PCB, firmware, software and the science behind them. AI-accelerated.">
+<meta property="og:image" content="assets/img/dustat-board-3.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f766e'/><path d='M5 20h5l3-9 4 14 3-9h7' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#">Xiaojun Yang<span>.</span></a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">How I work</a>
+      <a href="#about">About</a>
+      <a class="cta" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Freelance · Sensor & instrument engineering · EU / US remote</div>
+    <h1>From sensor idea to a working instrument on your bench.</h1>
+    <p class="lead">I design and build sensor and instrument prototypes end to end: analog front end, PCB, firmware, desktop software, and the electrochemistry or physics behind them. I use AI-accelerated engineering, so work that used to take months lands in weeks.</p>
+    <div class="btns">
+      <a class="btn primary" href="#contact">Discuss your project</a>
+      <a class="btn" href="#work">See the work</a>
+    </div>
+    <div class="proof">
+      <div><b>25 years</b><small>building hardware: mechanical, mechatronic, electrochemical</small></div>
+      <div><b>0.76 pA rms</b><small>noise floor on my own 24-bit potentiostat</small></div>
+      <div><b>2.17 M</b><small>inferences, 0 failures: 24 h soak test of my edge-AI dongle (dev kit)</small></div>
+      <div><b>JACS · Anal. Chem.</b><small>peer-reviewed electrochemical sensing papers</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <h2>What I can build for you</h2>
+    <p class="sub">Sensor products rarely fail on the science. They fail on integration: readout electronics, noise, firmware, software, mechanics, reproducibility. That is the gap I close.</p>
+    <div class="grid4">
+      <div class="card">
+        <div class="tag">01 · LEAD SERVICE</div>
+        <h3>Sensor & instrument prototyping</h3>
+        <p>From spec to a validated benchtop device, all from one engineer.</p>
+        <ul>
+          <li>Potentiostats, EIS, low-current (pA/fA) front ends</li>
+          <li>Optical sensors, CCD spectrometers, IMU/TinyML</li>
+          <li>PCB design to JLCPCB-ready fab files, bring-up</li>
+          <li>Firmware (ESP32, STM32, FPGA) + PC app</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="tag">02</div>
+        <h3>Lab automation & scientific software</h3>
+        <p>Turning instruments and data into something a lab can run every day.</p>
+        <ul>
+          <li>Instrument control & automated test rigs</li>
+          <li>Signal analysis, fitting, ML classification</li>
+          <li>Desktop apps: Python/Qt, Tauri/Rust</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="tag">03</div>
+        <h3>AI for engineering teams</h3>
+        <p>AI that has been measured to work, built by someone who knows the engineering it serves.</p>
+        <ul>
+          <li>RAG over technical documentation, with evaluation</li>
+          <li>AI agents for R&D and engineering workflows</li>
+          <li>AI-assisted hardware & firmware development set-up</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="tag">04</div>
+        <h3>Technical consulting & reviews</h3>
+        <p>A second pair of experienced eyes, by the hour or as a fixed-price review.</p>
+        <ul>
+          <li>Biosensor / electrochemical tech due diligence</li>
+          <li>Schematic & design reviews before you fab</li>
+          <li>Sourcing & manufacturing in China for EU teams</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <h2>Selected work</h2>
+    <p class="sub">Built and tested by me, with real measurements. I state each design's known limits, because the limits tell you more about my engineering than the headline numbers.</p>
+
+    <article class="case">
+      <div class="media"><img src="assets/img/dustat-board-3.jpg" alt="DuStat V2.0 potentiostat PCB with ESP32-S3 module, two 24-bit ADCs and a guarded transimpedance stage" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">Electrochemical instrument · own design</div>
+        <h3>DuStat: 24-bit potentiostat with impedance spectroscopy</h3>
+        <p>A 3-electrode potentiostat on a 4-layer board. It uses two 24-bit ADS127L11 ADCs, a DDS excitation source and an ADA4530 femto-ampere transimpedance stage behind a guard ring, with an ESP32-S3 for control. I did the complete instrument: schematic, layout, firmware, desktop GUI and a written validation report.</p>
+        <div class="kpis">
+          <div><b>0.76 pA</b><small>rms open-input noise (from 4.85 pA after layout fixes)</small></div>
+          <div><b>±0.5 %</b><small>CV, LSV, CA, SWV, DPV, NPV vs reference</small></div>
+          <div><b>±2.5 %</b><small>EIS, 20 Hz – 3 kHz</small></div>
+        </div>
+        <div class="chips"><span>Mixed-signal PCB</span><span>Low-noise analog</span><span>ESP32-S3</span><span>EIS</span><span>Python GUI</span></div>
+      </div>
+    </article>
+
+    <article class="case flip">
+      <div class="media"><img src="assets/img/saxstat-cv.png" alt="SaxStat desktop application showing a cyclic voltammogram of ferrocene" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">Open-source hardware → product redesign</div>
+        <h3>SaxStat → OneStat: an open potentiostat and its successor</h3>
+        <p>SaxStat is an open-source ESP32 potentiostat with gain-switched TIA, 7 measurement techniques and a ~6,400-line PyQt desktop app. Its potential window was limited to −0.2…+1.5 V by body-diode clamping in an analog switch. I documented the root cause publicly, and the next generation, OneStat, fixes it: ±2.5 V with bipolar switches and a 24-bit ADC, tested on gold, screen-printed and 25 µm micro-electrodes.</p>
+        <div class="chips"><span>Analog front end</span><span>Root-cause analysis</span><span>EasyEDA</span><span>PyQt</span><span>MIT licence</span></div>
+        <a class="more" href="https://github.com/xiaojunyang0805/SaxStat">SaxStat on GitHub →</a>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="media pad"><img src="assets/img/gatecore-sys_01_overview.svg" alt="GateCore system overview: Frigate NVR host plugin, Python SDK, USB protocol and K230D device with NPU" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">Edge-AI hardware · own product</div>
+        <h3>GateCore: USB AI-inference dongle for camera recorders</h3>
+        <p>An open alternative to the Google Coral accelerator for the Frigate NVR, built on a RISC-V K230D SoC with an NPU. The stack covers a YOLO model quantised to the NPU, embedded Linux with a USB gadget, a custom binary protocol, a Python SDK, a Frigate plugin, a 6-layer custom PCB (in fabrication) and an enclosure.</p>
+        <div class="kpis">
+          <div><b>2.17 M</b><small>inferences in a 24 h soak, 0 failures</small></div>
+          <div><b>25.4 /s</b><small>detections, 3 camera streams, pipelined</small></div>
+          <div><b>≤ 1.45 W</b><small>peak from USB (57 % of budget)</small></div>
+        </div>
+        <p><small style="color:var(--muted)">Measured on the dev kit. Custom-board results follow bring-up.</small></p>
+        <div class="chips"><span>NPU deployment</span><span>Embedded Linux</span><span>USB protocol</span><span>6-layer PCB</span><span>Python SDK</span></div>
+      </div>
+    </article>
+
+    <article class="case flip">
+      <div class="media pad"><img src="assets/img/rag-ablation.svg" alt="Bar charts: truth-aware retrieval raises hit@5 and top-1-is-current on example and real corpora" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">AI for engineering documentation</div>
+        <h3>Truth-aware RAG: answers that know current facts from superseded ones</h3>
+        <p>Engineering documentation is full of values that were true once and have since been superseded. Standard RAG retrieves them anyway. I built a retrieval pipeline that weights sources by how current they are, combines BM25 and vector search, cites every claim and refuses when unsure. It ships with an evaluation set, so the gains are measured rather than claimed.</p>
+        <div class="kpis">
+          <div><b>0.34 → 0.97</b><small>top-1 result is current (real 121-doc project)</small></div>
+          <div><b>0.90</b><small>hit@5 with truth weighting</small></div>
+          <div><b>0.76</b><small>MRR on the real corpus</small></div>
+        </div>
+        <div class="chips"><span>Python</span><span>Hybrid retrieval</span><span>Claude API</span><span>Evaluation design</span></div>
+        <a class="more" href="https://github.com/xiaojunyang0805/RAG_demo_pub">Code & write-up on GitHub →</a>
+      </div>
+    </article>
+
+    <article class="case" style="grid-template-columns:1fr">
+      <div class="card" style="padding:28px">
+        <div class="eyebrow">Industrial electronics · co-development with an OEM (under NDA)</div>
+        <h3>Industrial inkjet printhead driver system</h3>
+        <p>A multi-board drive system for an industrial printhead, co-developed with an OEM machine builder. It includes an FPGA controller with DDR3L and Gigabit Ethernet, high-voltage waveform amplifiers, encoder hub and test boards, a Windows host library and an operator GUI. It is in remote bring-up with the partner now: power, JTAG, DDR memory test and Ethernet all pass, and the head is firing.</p>
+        <div class="chips"><span>FPGA (ECP5, LiteX)</span><span>DDR3L / GigE layout</span><span>HV waveform drive</span><span>Windows DLL</span><span>CE/RoHS prep</span></div>
+        <p><small style="color:var(--muted)">Partner and design details are shared under NDA.</small></p>
+      </div>
+    </article>
+
+    <h3 style="margin:40px 0 14px">Also built</h3>
+    <div class="also">
+      <div><b>FPGA acquisition for a CMOS biosensor array</b><span>FPGA controller board and host application for a high-density electrode-array biosensor. (Employer project, summary only.)</span></div>
+      <div><b>Microfluidic automation rigs</b><span>Syringe pump, sample carousel and Z-axis, ESP32 + stepper drivers, PyQt6 protocol runner. Two rigs built.</span></div>
+      <div><b>StepAnalyzer + StepReaderCNN</b><span>Step detection in single-entity electrochemistry data, classic and CNN versions; accompanies an Anal. Chem. 2022 paper. <a href="https://github.com/xiaojunyang0805/2024_StepAnalyzer">GitHub</a></span></div>
+      <div><b>PyRaman Pro</b><span>Raman spectra processing (arPLS baselines, peak fitting), benchmarked against OriginLab. <a href="https://github.com/xiaojunyang0805/PyRaman_Pro">GitHub</a></span></div>
+      <div><b>SenseCore</b><span>ESP32-S3 TinyML motion-sensing dev kit: hardware, firmware, ML models, desktop studio, bilingual docs. <a href="https://github.com/HardCore-Electronics/SenseCore">GitHub</a></span></div>
+      <div><b>AI-accelerated PCB pipeline</b><span>Claude Code + EasyEDA + offline auto-routing with exact clearance checks, used on 5+ boards.</span></div>
+      <div><b>Yang-MarkD</b><span>3 MB Tauri Markdown viewer for AI-generated docs, Windows & Linux. <a href="https://github.com/xiaojunyang0805/Yang-MarkD">GitHub</a></span></div>
+      <div><b>In design</b><span>Coin-size BLE potentiostat with EIS · miniature UV-Vis CCD spectrometer · femto-ampere amplifier.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <h2>How I work</h2>
+    <p class="sub">Fixed-price phases, so you always know what the next euro buys. Each phase ends with something you can check.</p>
+    <div class="steps">
+      <div><h4>Scoping call</h4><p>30 minutes, free. Your problem, what "done" means, constraints, budget.</p></div>
+      <div><h4>Spec & plan</h4><p>A short written spec, risk list and part choices, delivered as a small fixed-price first phase.</p></div>
+      <div><h4>Build</h4><p>Design, fabrication and firmware in short iterations, with a written update every week and early demos.</p></div>
+      <div><h4>Validate</h4><p>Measured against the spec, with a test report that states the limits honestly.</p></div>
+      <div><h4>Hand over</h4><p>Source, fab files and documentation. The IP is yours once paid.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About</h2>
+      <p>I'm Xiaojun Yang, an engineer based in the Netherlands. I started in mechanical and mechatronic engineering and spent 15 years designing machines and systems. In 2018 I moved into electrochemical biosensing: MSc Applied Nanotechnology, then research on single-entity electrochemistry, CMOS biosensor chips and point-of-care sensors, published in <i>JACS</i> and <i>Analytical Chemistry</i>.</p>
+      <p>Today I combine the two. I build the complete instrument that a sensing idea needs, from the mechanics and electronics to the firmware, the software and the measurement science. AI tools are part of how I engineer every day, and they let one experienced engineer deliver what used to take a small team.</p>
+      <p>I work remotely with clients across Europe and the US, and on-site in the Netherlands and Germany. Languages: English and Chinese (native).</p>
+      <ul class="timeline" style="margin-top:26px">
+        <li><b>Now · Freelance engineer</b><span>Instruments, edge-AI hardware, industrial electronics, AI tooling</span></li>
+        <li><b>2018 – 2026 · Biosensor R&D</b><span>University of applied sciences & deep-tech startups (NL, SE): CMOS biosensors, potentiostats, assay & data tools</span></li>
+        <li><b>15 years · Mechanical / mechatronic engineering</b><span>Machine and system design</span></li>
+        <li><b>Education</b><span>MSc Applied Nanotechnology (Saxion, NL) · MSc Mechanical Engineering (Shanghai Jiao Tong University)</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="stack-group"><h4>Electronics</h4><div class="stack"><span>Analog front ends</span><span>pA/fA measurement</span><span>EasyEDA Pro</span><span>Multi-layer, DDR3L, USB, GigE</span><span>JLCPCB / LCSC</span><span>Bring-up & debug</span></div></div>
+      <div class="stack-group"><h4>Embedded</h4><div class="stack"><span>ESP32 / ESP-IDF</span><span>STM32</span><span>FPGA: ECP5, iCE40, Verilog, LiteX</span><span>Embedded Linux</span><span>NPU deployment</span></div></div>
+      <div class="stack-group"><h4>Software & AI</h4><div class="stack"><span>Python</span><span>PyQt / PySide</span><span>Rust / Tauri</span><span>RAG & agents</span><span>Claude Code</span><span>CNN / TinyML</span></div></div>
+      <div class="stack-group"><h4>Science</h4><div class="stack"><span>Electrochemistry: CV, DPV, SWV, EIS</span><span>Biosensors & assays</span><span>Raman / UV-Vis</span><span>Microfluidics</span></div></div>
+      <div class="stack-group"><h4>Mechanical</h4><div class="stack"><span>SolidWorks</span><span>FreeCAD</span><span>Mechatronic systems</span><span>DFM</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="border-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Have a sensor or instrument to build?</h2>
+      <p>Tell me what you're trying to measure or automate. I reply within one working day, and the first call is free.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:xiaojunyang0805@gmail.com?subject=Project%20enquiry">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/xiaojun-yang-5066b0114">LinkedIn</a>
+        <a class="btn" href="https://github.com/xiaojunyang0805">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Xiaojun Yang · Enschede, the Netherlands</span>
+    <span>KvK / BTW: to be added</span>
+  </div>
+</footer>
+</body>
+</html>
