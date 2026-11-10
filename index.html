@@ -42,7 +42,7 @@
     </div>
     <div class="proof">
       <div><b>25 years</b><small>building hardware: mechanical, mechatronic, electrochemical</small></div>
-      <div><b>0.76 pA rms</b><small>noise floor on my own 24-bit potentiostat</small></div>
+      <div><b>0.088 %</b><small>chronoamperometry noise on my own 24-bit potentiostat (commercial reference: 0.103 %)</small></div>
       <div><b>2.17 M</b><small>inferences, 0 failures: 24 h soak test of my edge-AI dongle (dev kit)</small></div>
       <div><b>JACS · Anal. Chem.</b><small>peer-reviewed electrochemical sensing papers</small></div>
     </div>
@@ -111,11 +111,11 @@
       <div>
         <div class="eyebrow">Electrochemical instrument · own design</div>
         <h3>DuStat: 24-bit potentiostat with impedance spectroscopy</h3>
-        <p>A 3-electrode potentiostat on a 4-layer board. It uses two 24-bit ADS127L11 ADCs, a DDS excitation source and an ADA4530 femto-ampere transimpedance stage behind a guard ring, with an ESP32-S3 for control. I did the complete instrument: schematic, layout, firmware, desktop GUI and a written validation report.</p>
+        <p>A 3-electrode potentiostat on a 4-layer board. It uses two 24-bit ADS127L11 ADCs, a DDS excitation source and an ADA4530 femto-ampere transimpedance stage behind a guard ring, with an ESP32-S3 for control. It runs 8 techniques from CV to EIS over a ±2.5 V window. I did the complete instrument: schematic, layout, firmware, desktop GUI and a written validation report. Two board revisions and two built units taught me the most from the bugs: a charge pump that latched, a DAC on the wrong supply, and mains hum aliasing through an averaging window that was 0.75 of a mains period.</p>
         <div class="kpis">
-          <div><b>0.76 pA</b><small>rms open-input noise (from 4.85 pA after layout fixes)</small></div>
-          <div><b>±0.5 %</b><small>CV, LSV, CA, SWV, DPV, NPV vs reference</small></div>
-          <div><b>±2.5 %</b><small>EIS, 20 Hz – 3 kHz</small></div>
+          <div><b>6.4×</b><small>lower open-input noise after two firmware fixes, found from the noise spectrum</small></div>
+          <div><b>0.5 %</b><small>current accuracy on a calibrated dummy cell, all DC techniques</small></div>
+          <div><b>3.5 %</b><small>agreement with a commercial potentiostat on the same electrode</small></div>
         </div>
         <div class="chips"><span>Mixed-signal PCB</span><span>Low-noise analog</span><span>ESP32-S3</span><span>EIS</span><span>Python GUI</span></div>
       </div>
@@ -137,11 +137,11 @@
       <div>
         <div class="eyebrow">Edge-AI hardware · own product</div>
         <h3>GateCore: USB AI-inference dongle for camera recorders</h3>
-        <p>An open alternative to the Google Coral accelerator for the Frigate NVR, built on a RISC-V K230D SoC with an NPU. The stack covers a YOLO model quantised to the NPU, embedded Linux with a USB gadget, a custom binary protocol, a Python SDK, a Frigate plugin, a 6-layer custom PCB (in fabrication) and an enclosure.</p>
+        <p>An open alternative to the Google Coral accelerator for the Frigate NVR, built on a RISC-V K230D SoC with an NPU. The stack covers a YOLOv9 model quantised for the NPU with accuracy matching the float model, embedded Linux with a USB gadget, a custom binary protocol, a Python SDK, a Frigate plugin, a 6-layer custom PCB (in fabrication) and an enclosure.</p>
         <div class="kpis">
           <div><b>2.17 M</b><small>inferences in a 24 h soak, 0 failures</small></div>
           <div><b>25.4 /s</b><small>detections, 3 camera streams, pipelined</small></div>
-          <div><b>≤ 1.45 W</b><small>peak from USB (57 % of budget)</small></div>
+          <div><b>47 ms</b><small>host-to-host latency per frame (p50)</small></div>
         </div>
         <p><small style="color:var(--muted)">Measured on the dev kit. Custom-board results follow bring-up.</small></p>
         <div class="chips"><span>NPU deployment</span><span>Embedded Linux</span><span>USB protocol</span><span>6-layer PCB</span><span>Python SDK</span></div>
