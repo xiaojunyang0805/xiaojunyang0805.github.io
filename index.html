@@ -123,33 +123,6 @@
     </article>
 
     <article class="case flip">
-      <div class="media"><img src="assets/img/saxstat-cv.png" alt="SaxStat desktop application showing a cyclic voltammogram of ferrocene" loading="lazy"></div>
-      <div>
-        <div class="eyebrow">Open-source hardware → product redesign</div>
-        <h3>SaxStat → OneStat: an open potentiostat and its successor</h3>
-        <p>SaxStat is an open-source ESP32 potentiostat with gain-switched TIA, 7 measurement techniques and a ~6,400-line PyQt desktop app. Its potential window was limited to −0.2…+1.5 V by body-diode clamping in an analog switch. I documented the root cause publicly, and the next generation, OneStat, fixes it: ±2.5 V with bipolar switches and a 24-bit ADC, tested on gold, screen-printed and 25 µm micro-electrodes.</p>
-        <div class="chips"><span>Analog front end</span><span>Root-cause analysis</span><span>EasyEDA</span><span>PyQt</span><span>MIT licence</span></div>
-        <a class="more" href="https://github.com/xiaojunyang0805/SaxStat">SaxStat on GitHub →</a>
-      </div>
-    </article>
-
-    <article class="case">
-      <div class="media pad"><img src="assets/img/gatecore-sys_01_overview.svg" alt="GateCore system overview: Frigate NVR host plugin, Python SDK, USB protocol and K230D device with NPU" loading="lazy"></div>
-      <div>
-        <div class="eyebrow">Edge-AI hardware · own product</div>
-        <h3>GateCore: USB AI-inference dongle for camera recorders</h3>
-        <p>An open alternative to the Google Coral accelerator for the Frigate NVR, built on a RISC-V K230D SoC with an NPU. The stack covers a YOLOv9 model quantised for the NPU with accuracy matching the float model, embedded Linux with a USB gadget, a custom binary protocol, a Python SDK, a Frigate plugin, a 6-layer custom PCB (in fabrication) and an enclosure.</p>
-        <div class="kpis">
-          <div><b>2.17 M</b><small>inferences in a 24 h soak, 0 failures</small></div>
-          <div><b>25.4 /s</b><small>detections, 3 camera streams, pipelined</small></div>
-          <div><b>47 ms</b><small>host-to-host latency per frame (p50)</small></div>
-        </div>
-        <p><small style="color:var(--muted)">Measured on the dev kit. Custom-board results follow bring-up.</small></p>
-        <div class="chips"><span>NPU deployment</span><span>Embedded Linux</span><span>USB protocol</span><span>6-layer PCB</span><span>Python SDK</span></div>
-      </div>
-    </article>
-
-    <article class="case flip">
       <div class="media pad">
         <img src="assets/img/sensor-array-controller.jpg" alt="FPGA controller board for a CMOS sensor array: Lattice ECP5 FPGA, USB interface, DAC and ADC channels and ribbon-cable connectors to the sensor board" loading="lazy" style="border-radius:6px;margin-bottom:12px">
         <svg id="array-anim" viewBox="0 0 480 318" role="img" aria-label="Illustration with simulated data: a sensor array is scanned row by row and builds a live image of particles drifting over the electrodes; below, the chain from sensor array to FPGA controller to host application to live image" style="display:block;width:100%;height:auto">
@@ -229,6 +202,33 @@
     </article>
 
     <article class="case">
+      <div class="media"><img src="assets/img/saxstat-cv.png" alt="SaxStat desktop application showing a cyclic voltammogram of ferrocene" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">Open-source hardware → product redesign</div>
+        <h3>SaxStat → OneStat: an open potentiostat and its successor</h3>
+        <p>SaxStat is an open-source ESP32 potentiostat with gain-switched TIA, 7 measurement techniques and a ~6,400-line PyQt desktop app. Its potential window was limited to −0.2…+1.5 V by body-diode clamping in an analog switch. I documented the root cause publicly, and the next generation, OneStat, fixes it: ±2.5 V with bipolar switches and a 24-bit ADC, tested on gold, screen-printed and 25 µm micro-electrodes.</p>
+        <div class="chips"><span>Analog front end</span><span>Root-cause analysis</span><span>EasyEDA</span><span>PyQt</span><span>MIT licence</span></div>
+        <a class="more" href="https://github.com/xiaojunyang0805/SaxStat">SaxStat on GitHub →</a>
+      </div>
+    </article>
+
+    <article class="case flip">
+      <div class="media pad"><img src="assets/img/gatecore-sys_01_overview.svg" alt="GateCore system overview: Frigate NVR host plugin, Python SDK, USB protocol and K230D device with NPU" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">Edge-AI hardware · own product</div>
+        <h3>GateCore: USB AI-inference dongle for camera recorders</h3>
+        <p>An open alternative to the Google Coral accelerator for the Frigate NVR, built on a RISC-V K230D SoC with an NPU. The stack covers a YOLOv9 model quantised for the NPU with accuracy matching the float model, embedded Linux with a USB gadget, a custom binary protocol, a Python SDK, a Frigate plugin, a 6-layer custom PCB (in fabrication) and an enclosure.</p>
+        <div class="kpis">
+          <div><b>2.17 M</b><small>inferences in a 24 h soak, 0 failures</small></div>
+          <div><b>25.4 /s</b><small>detections, 3 camera streams, pipelined</small></div>
+          <div><b>47 ms</b><small>host-to-host latency per frame (p50)</small></div>
+        </div>
+        <p><small style="color:var(--muted)">Measured on the dev kit. Custom-board results follow bring-up.</small></p>
+        <div class="chips"><span>NPU deployment</span><span>Embedded Linux</span><span>USB protocol</span><span>6-layer PCB</span><span>Python SDK</span></div>
+      </div>
+    </article>
+
+    <article class="case">
       <div class="media pad"><img src="assets/img/rag-ablation.svg" alt="Bar charts: truth-aware retrieval raises hit@5 and top-1-is-current on example and real corpora" loading="lazy"></div>
       <div>
         <div class="eyebrow">AI for engineering documentation</div>
@@ -244,12 +244,14 @@
       </div>
     </article>
 
-    <article class="case" style="grid-template-columns:1fr">
-      <div class="card" style="padding:28px">
+    <article class="case flip">
+      <div class="media"><img src="assets/img/printhead-bench-scope.jpg" alt="In-house bench test of the printhead driver: oscilloscope showing a multi-pulse head drive waveform, high-voltage differential probe and the driver boards" loading="lazy"></div>
+      <div>
         <div class="eyebrow">Industrial electronics · co-development with an OEM (under NDA)</div>
         <h3>Industrial inkjet printhead driver system</h3>
-        <p>A multi-board drive system for an industrial printhead, co-developed with an OEM machine builder. It includes an FPGA controller with DDR3L and Gigabit Ethernet, high-voltage waveform amplifiers, encoder hub and test boards, a Windows host library and an operator GUI. It is in remote bring-up with the partner now: power, JTAG, DDR memory test and Ethernet all pass, and the head is firing.</p>
-        <div class="chips"><span>FPGA (ECP5, LiteX)</span><span>DDR3L / GigE layout</span><span>HV waveform drive</span><span>Windows DLL</span><span>CE/RoHS prep</span></div>
+        <p>A multi-board drive system for an industrial printhead, co-developed with an OEM machine builder: an FPGA controller with DDR3L and Gigabit Ethernet, high-voltage waveform amplifiers, encoder hub and test boards, a Windows host library and an operator GUI.</p>
+        <p><b>Validation and delivery.</b> Brought up both remotely with the partner and on my own bench. Every supply, interface and drive channel was checked with scripted scope measurements, including the high-voltage head drive through a differential probe. Filmed long print runs followed: 800,000 lines with zero timing faults. The findings feed a second board revision.</p>
+        <div class="chips"><span>FPGA (ECP5, LiteX)</span><span>DDR3L / GigE layout</span><span>HV waveform drive</span><span>Scripted bench validation</span><span>Windows DLL</span><span>CE/RoHS prep</span></div>
         <p><small style="color:var(--muted)">Partner and design details are shared under NDA.</small></p>
       </div>
     </article>
