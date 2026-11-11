@@ -150,6 +150,85 @@
     </article>
 
     <article class="case flip">
+      <div class="media pad">
+        <img src="assets/img/sensor-array-controller.jpg" alt="FPGA controller board for a CMOS sensor array: Lattice ECP5 FPGA, USB interface, DAC and ADC channels and ribbon-cable connectors to the sensor board" loading="lazy" style="border-radius:6px;margin-bottom:12px">
+        <svg id="array-anim" viewBox="0 0 480 318" role="img" aria-label="Illustration with simulated data: a sensor array is scanned row by row and builds a live image of particles drifting over the electrodes; below, the chain from sensor array to FPGA controller to host application to live image" style="display:block;width:100%;height:auto">
+          <defs><marker id="arr-anim-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#5b6672"/></marker></defs>
+          <g id="array-grid"></g>
+          <rect id="array-scan" x="44" y="16" width="392" height="14" fill="none" stroke="#d97706" stroke-width="1.5" rx="2"/>
+          <g font-family="Inter, system-ui, sans-serif" font-size="12" fill="#1d232a" text-anchor="middle">
+            <g fill="none" stroke="#5b6672" stroke-width="1.2">
+              <rect x="14" y="268" width="96" height="34" rx="7"/><rect x="138" y="268" width="96" height="34" rx="7"/>
+              <rect x="262" y="268" width="96" height="34" rx="7"/><rect x="386" y="268" width="80" height="34" rx="7" stroke="#0f766e" stroke-width="2"/>
+              <path d="M112 285H136" marker-end="url(#arr-anim-head)"/><path d="M236 285H260" marker-end="url(#arr-anim-head)"/><path d="M360 285H384" marker-end="url(#arr-anim-head)"/>
+            </g>
+            <text x="62" y="289">Sensor array</text><text x="186" y="289">FPGA controller</text>
+            <text x="310" y="289">Host app</text><text x="426" y="289" font-weight="600">Live image</text>
+            <text x="240" y="256" font-size="11" fill="#5b6672">Illustration · simulated data · row-by-row readout</text>
+          </g>
+        </svg>
+        <script>
+        (function () {
+          var svg = document.getElementById('array-anim'); if (!svg) return;
+          var COLS = 28, ROWS = 16, S = 14, X0 = 44, Y0 = 16, NS = 'http://www.w3.org/2000/svg';
+          var grid = document.getElementById('array-grid'), scan = document.getElementById('array-scan');
+          var cells = [], lo = [238, 246, 245], hi = [15, 118, 110];
+          for (var r = 0; r < ROWS; r++) for (var c = 0; c < COLS; c++) {
+            var p = document.createElementNS(NS, 'rect');
+            p.setAttribute('x', X0 + c * S + 1); p.setAttribute('y', Y0 + r * S + 1);
+            p.setAttribute('width', S - 2); p.setAttribute('height', S - 2); p.setAttribute('rx', 2);
+            p.setAttribute('fill', 'rgb(238,246,245)'); grid.appendChild(p); cells.push(p);
+          }
+          // simulated particles: centre (in pixel units), radius, path
+          function particles(t) {
+            return [
+              { x: 14 + 10 * Math.sin(t * 0.21), y: 8 + 4.5 * Math.sin(t * 0.33 + 1), r: 2.6 },
+              { x: 14 + 11 * Math.cos(t * 0.15 + 2), y: 8 + 5 * Math.sin(t * 0.19), r: 1.7 },
+              { x: ((t * 1.1) % (COLS + 8)) - 4, y: 3 + 1.5 * Math.sin(t * 0.7), r: 1.1 }
+            ];
+          }
+          function value(c, r, ps) {
+            var v = 0;
+            for (var i = 0; i < ps.length; i++) {
+              var dx = c + 0.5 - ps[i].x, dy = r + 0.5 - ps[i].y;
+              v += Math.exp(-(dx * dx + dy * dy) / (2 * ps[i].r * ps[i].r));
+            }
+            v = Math.min(1, v) + (Math.random() - 0.5) * 0.06;
+            return Math.max(0, Math.min(1, v));
+          }
+          function shade(v) {
+            return 'rgb(' + [0, 1, 2].map(function (k) { return Math.round(lo[k] + (hi[k] - lo[k]) * v); }).join(',') + ')';
+          }
+          function writeRow(r, t) {
+            var ps = particles(t);
+            for (var c = 0; c < COLS; c++) cells[r * COLS + c].setAttribute('fill', shade(value(c, r, ps)));
+          }
+          var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (reduce) { for (var r0 = 0; r0 < ROWS; r0++) writeRow(r0, 6); scan.style.display = 'none'; return; }
+          var row = 0, t = 0, last = 0, visible = true, ROW_MS = 45;
+          if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(svg);
+          function tick(now) {
+            if (visible && now - last > ROW_MS) {
+              last = now; writeRow(row, t);
+              scan.setAttribute('y', Y0 + row * S);
+              row = (row + 1) % ROWS; t += 0.06;
+            }
+            requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        })();
+        </script>
+      </div>
+      <div>
+        <div class="eyebrow">Advanced sensor driving · employer project</div>
+        <h3>Driving a high-density CMOS capacitive sensor array</h3>
+        <p>A CMOS sensor chip with tens of thousands of nano-electrodes measures the capacitance above each electrode at high frequency, so particles and living cells show up as a live, label-free image. I built the electronics that make such a chip usable: an FPGA controller board that generates the drive and addressing sequences, reads the array out and streams frames to a PC, and the host application for live imaging, recording and analysis. The work covered mixed-signal board design, FPGA firmware, bring-up and verification against a reference readout, and analysis tools for the recordings.</p>
+        <div class="chips"><span>Sensor-array driving</span><span>FPGA (ECP5)</span><span>Mixed-signal PCB</span><span>High-speed readout</span><span>Python/Qt host app</span><span>Image & signal analysis</span></div>
+        <p><small style="color:var(--muted)">Employer project, described at the level of the published sensor principle. The illustration uses simulated data.</small></p>
+      </div>
+    </article>
+
+    <article class="case">
       <div class="media pad"><img src="assets/img/rag-ablation.svg" alt="Bar charts: truth-aware retrieval raises hit@5 and top-1-is-current on example and real corpora" loading="lazy"></div>
       <div>
         <div class="eyebrow">AI for engineering documentation</div>
@@ -177,7 +256,6 @@
 
     <h3 style="margin:40px 0 14px">Also built</h3>
     <div class="also">
-      <div><b>FPGA acquisition for a CMOS biosensor array</b><span>FPGA controller board and host application for a high-density electrode-array biosensor. (Employer project, summary only.)</span></div>
       <div><b>Microfluidic automation rigs</b><span>Syringe pump, sample carousel and Z-axis, ESP32 + stepper drivers, PyQt6 protocol runner. Two rigs built.</span></div>
       <div><b>StepAnalyzer + StepReaderCNN</b><span>Step detection in single-entity electrochemistry data, classic and CNN versions; accompanies an Anal. Chem. 2022 paper. <a href="https://github.com/xiaojunyang0805/2024_StepAnalyzer">GitHub</a></span></div>
       <div><b>PyRaman Pro</b><span>Raman spectra processing (arPLS baselines, peak fitting), benchmarked against OriginLab. <a href="https://github.com/xiaojunyang0805/PyRaman_Pro">GitHub</a></span></div>
