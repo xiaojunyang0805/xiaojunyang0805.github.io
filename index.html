@@ -64,6 +64,8 @@
           <li>Optical sensors, CCD spectrometers, IMU/TinyML</li>
           <li>PCB design to JLCPCB-ready fab files, bring-up</li>
           <li>Firmware (ESP32, STM32, FPGA) + PC app</li>
+          <li>Mechanics, hydraulics & PLC control (SolidWorks, Siemens LOGO!)</li>
+          <li>Multiphysics simulation (COMSOL), checked against measurements</li>
         </ul>
       </div>
       <div class="card">
@@ -213,6 +215,43 @@
     </article>
 
     <article class="case flip">
+      <div class="media pad">
+        <img src="assets/img/minitwin-exploded.png" alt="Exploded CAD view of the dual-line pump body: motor, worm gearbox, shaft and eccentric, main block, piston assembly, directional valve block and tank disc" loading="lazy" style="border-radius:6px">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+          <img src="assets/img/minitwin-unit.jpg" alt="Built pump unit with 30 litre grease tank and wall-mounted control cabinet in the workshop" loading="lazy" style="border-radius:6px">
+          <img src="assets/img/minitwin-cabinet.jpg" alt="Control cabinet wiring: breakers, 24 V supply, Siemens LOGO! PLC and motor contactor" loading="lazy" style="border-radius:6px">
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Mechanical & mechatronic product · design to commissioning</div>
+        <h3>300 bar dual-line grease pump with PLC control</h3>
+        <p>A compact central-lubrication pump for 25–40 MN electrode extrusion presses, which grease 20+ bearings and slides through two alternating main lines. I did the whole product: a 0.37 kW motor with worm gearbox driving an eccentric and a nitrided Ø14 mm piston, a valve block with solenoid line switching, relief valve and gauges, and a 30 L tank with stirrer and capacitive level switches. Then the SolidWorks models, 25 fabrication drawings and the BOM, supplier sourcing, assembly, a Siemens LOGO! control cabinet (dual-line cycle, timeout and level alarms, remote I/O to the press PLC), a factory test procedure, and commissioning at the plant.</p>
+        <p><b>After sales.</b> Three years later, replacement pistons wouldn't fit on site. A tolerance stack-up traced it to a 24 mm spring in a 24.1 mm bore. I respecified the spring and re-checked the check-valve stack, so no parts on site had to be re-machined.</p>
+        <div class="kpis">
+          <div><b>300 bar</b><small>system pressure, dual-line switching</small></div>
+          <div><b>25</b><small>fabrication drawings + full BOM, made by local shops</small></div>
+          <div><b>4</b><small>press lubrication systems delivered, 25–40 MN</small></div>
+        </div>
+        <div class="chips"><span>SolidWorks</span><span>Hydraulics</span><span>Machine design</span><span>Siemens LOGO! PLC</span><span>Panel wiring</span><span>Test procedure</span><span>Site commissioning</span></div>
+      </div>
+    </article>
+
+    <article class="case">
+      <div class="media pad"><img src="assets/img/comsol-model-validation.svg" alt="COMSOL model chain (electric currents, laminar flow and species transport feeding particle tracing) and a validation chart: simulated 0.872 nA inside the measured 0.81 to 0.88 nA" loading="lazy"></div>
+      <div>
+        <div class="eyebrow">Multiphysics simulation · MSc thesis (Saxion / University of Twente)</div>
+        <h3>COMSOL: nanoparticle impact sensing and a ring microelectrode</h3>
+        <p>Blockade impact electrochemistry counts and sizes single nanoparticles from current steps at a microelectrode, but a disk electrode's edge effect makes step size depend on where a particle lands, and at low salt some particles never stay. I built COMSOL models of diffusion-limited currents on disk and ring electrodes, and a coupled electric-field, laminar-flow and transport model with electroosmotic walls plus particle tracing. The simulations showed that a ring electrode removes most of the edge effect, gave its geometry rules, and traced the lost particles to electroosmotic flow. A coating that reverses the glass surface charge then removed those events in the lab.</p>
+        <div class="kpis">
+          <div><b>&lt; 7 %</b><small>simulated vs measured background current</small></div>
+          <div><b>6 %</b><small>minimum particle/electrode size ratio, tighter than the 10 % rule used before</small></div>
+          <div><b>4–5 %</b><small>domain-truncation error, estimated and accounted for</small></div>
+        </div>
+        <div class="chips"><span>COMSOL Multiphysics</span><span>Electrokinetic flow</span><span>Particle tracing</span><span>Mesh-convergence checks</span><span>Electrochemistry</span></div>
+      </div>
+    </article>
+
+    <article class="case flip">
       <div class="media pad"><img src="assets/img/gatecore-sys_01_overview.svg" alt="GateCore system overview: Frigate NVR host plugin, Python SDK, USB protocol and K230D device with NPU" loading="lazy"></div>
       <div>
         <div class="eyebrow">Edge-AI hardware · own product</div>
@@ -303,8 +342,8 @@
       <div class="stack-group"><h4>Electronics</h4><div class="stack"><span>Analog front ends</span><span>pA/fA measurement</span><span>EasyEDA Pro</span><span>Multi-layer, DDR3L, USB, GigE</span><span>JLCPCB / LCSC</span><span>Bring-up & debug</span></div></div>
       <div class="stack-group"><h4>Embedded</h4><div class="stack"><span>ESP32 / ESP-IDF</span><span>STM32</span><span>FPGA: ECP5, iCE40, Verilog, LiteX</span><span>Embedded Linux</span><span>NPU deployment</span></div></div>
       <div class="stack-group"><h4>Software & AI</h4><div class="stack"><span>Python</span><span>PyQt / PySide</span><span>Rust / Tauri</span><span>RAG & agents</span><span>Claude Code</span><span>CNN / TinyML</span></div></div>
-      <div class="stack-group"><h4>Science</h4><div class="stack"><span>Electrochemistry: CV, DPV, SWV, EIS</span><span>Biosensors & assays</span><span>Raman / UV-Vis</span><span>Microfluidics</span></div></div>
-      <div class="stack-group"><h4>Mechanical</h4><div class="stack"><span>SolidWorks</span><span>FreeCAD</span><span>Mechatronic systems</span><span>DFM</span></div></div>
+      <div class="stack-group"><h4>Science</h4><div class="stack"><span>Electrochemistry: CV, DPV, SWV, EIS</span><span>Biosensors & assays</span><span>Raman / UV-Vis</span><span>Microfluidics</span><span>COMSOL multiphysics</span></div></div>
+      <div class="stack-group"><h4>Mechanical</h4><div class="stack"><span>SolidWorks</span><span>FreeCAD</span><span>Hydraulics & lubrication</span><span>PLC control (Siemens LOGO!)</span><span>Mechatronic systems</span><span>DFM</span></div></div>
     </div>
   </div>
 </section>
